@@ -1,0 +1,64 @@
+@import "../../../styles/color";
+@import "../../../styles/mixin";
+
+.Navigation {
+    width: 220px;
+    height: 500px;
+
+    &__Contanier {
+        @include column();
+        align-items: flex-start;
+        padding: 20px 15px 0 0px;
+    }
+    &__Main {
+        cursor: pointer;
+        @include row-a-center();
+        width: 88%;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        padding: 9px 0 9px 25px;
+
+        & > span {
+            font-size: 17px;
+            font-weight: 300;
+            color: rgb(195, 195, 195);
+            padding: 0 0 0 12px;
+        }
+    }
+    &__Main:hover {
+        background-color: $navigation-hover;
+    }
+
+    &__Hot {
+        @include column();
+        padding-right: 25px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 300;
+        color: rgb(243, 243, 243);
+
+        & > h1 {
+            font-weight: 300;
+            font-size: 14px;
+            color: rgb(130, 146, 180);
+            padding: 13px 0 13px 25px;
+            margin: 0;
+        }
+        & > span {
+            cursor: pointer;
+            @include row-a-center;
+            width: 88%;
+            height: 34px;
+            padding: 5px 0 5px 25px;
+            margin-right: 8px;
+            &:hover {
+                background-color: $navigation-hover;
+            }
+            & > img {
+                width: 30px;
+                height: 30px;
+                padding: 0 8px 0 0;
+            }
+        }
+    }
+}

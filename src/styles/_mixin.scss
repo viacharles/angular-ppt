@@ -1,0 +1,116 @@
+@mixin column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin column-a-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin row-a-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@mixin row-aj-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin row-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin j-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin font-family {
+    font-family: "Segoe UI", "微軟正黑體", Geneva, Verdana, sans-serif;
+}
+
+@mixin a {
+    text-decoration: none;
+    color: rgb(227, 227, 227);
+}
+
+@mixin spot {
+    display: flex;
+    width: 10px;
+    padding: 0 4px 0 0;
+}
+
+@mixin hover-down-line {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 50px;
+    background-color: rgb(15, 127, 255);
+    top: 79px;
+    left: 137px;
+}
+
+@mixin respond-amount {
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    color: rgb(161, 161, 161);
+    letter-spacing: 0.8px;
+}
+
+@mixin content-head-shot {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+@mixin content-block-title {
+    @include row();
+    align-items: flex-end;
+    // width: 100%;
+    height: 20px;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgb(139, 139, 139);
+    padding: 37px 0 5px 0;
+    border-bottom: 1px solid rgb(235, 234, 234);
+}
+
+@mixin content-reply-icon {
+    cursor: pointer;
+    color: rgb(199, 199, 199);
+    font-size: 22px;
+    padding: 0 25px 0 0;
+    > :hover {
+        background-color: rgb(21, 127, 197);
+    }
+}
+
+@mixin follow-button {
+    cursor: pointer;
+    @include j-center();
+    width: 64px;
+    height: 42px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(21, 127, 197);
+    border: none;
+    border-radius: 10px;
+    > :hover {
+        background-color: rgb(6, 99, 161);
+    }
+}

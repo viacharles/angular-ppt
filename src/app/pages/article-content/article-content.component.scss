@@ -1,0 +1,271 @@
+@import "../../../styles/color";
+@import "../../../styles/mixin";
+.ArticleContent {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    &>div:nth-child(2) {
+        padding: 0 60px;
+    }
+    &__Container {
+        @include column();
+        padding: 40px 60px 0 60px;
+    }
+    &__Info {
+        @include row-a-center();
+        position: relative;
+        &>img {
+            @include content-head-shot();
+        }
+        &>span {
+            @include column();
+            padding: 2px 0 2px 15px;
+            &>span:first-child {
+                font-weight: 300;
+                line-height: 19px;
+            }
+            &>span:nth-child(2) {
+                font-size: 13px;
+                font-weight: 300;
+                color: rgb(44, 136, 136);
+            }
+        }
+        &>button {
+            cursor: pointer;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            background-color: inherit;
+            border: none;
+            &>i {
+                color: rgb(189, 189, 189);
+                font-weight: 200;
+                font-size: 23px;
+            }
+        }
+    }
+    &__MainTitle {
+        font-size: 30px;
+        font-weight: 400;
+        padding: 20px 0 12px 0;
+    }
+    &__ClassTime {
+        @include row-a-center();
+        &>div:first-child {
+            font-size: 13px;
+            font-weight: 300;
+            color: rgb(44, 136, 136);
+        }
+        &>div:nth-child(3) {
+            font-family: sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: rgb(139, 139, 139);
+        }
+    }
+    &__Content {
+        font-size: 18px;
+        padding: 23px 0 35px 0;
+    }
+    &__Respond {
+        @include row-a-center();
+        justify-content: space-between;
+        width: 100%;
+        padding: 11px 0 0 3px;
+        &>li:first-child {
+            @include row-a-center();
+            width: 300px;
+            &>img:first-child {
+                width: 27px;
+                height: 27px;
+            }
+            &>span {
+                font-family: sans-serif;
+                font-weight: 100;
+                font-size: 14px;
+                color: rgb(161, 161, 161);
+                letter-spacing: 0.8px;
+            }
+            &>img:nth-child(3) {
+                width: 27px;
+                height: 27px;
+                padding: 0 5px 0 7px;
+            }
+            &>img:nth-child(5) {
+                width: 27px;
+                height: 27px;
+                padding: 0 0 0 7px;
+            }
+        }
+        &>li:nth-child(2) {
+            @include row-a-center();
+            justify-content: end;
+            width: 300px;
+            &>i {
+                font-size: 23px;
+                color: rgb(211, 211, 211);
+                padding: 0 0 0 20px;
+            }
+            &>div {
+                font-family: sans-serif;
+                font-weight: 100;
+                font-size: 14px;
+                color: rgb(134, 134, 134);
+                letter-spacing: 0.8px;
+                padding: 0 0 0 5px;
+            }
+        }
+    }
+    &__ClassInfo {
+        @include row-a-center();
+        justify-content: space-between;
+        width: 100%;
+        height: 43px;
+        padding: 16px 0;
+        border-bottom: 1px solid rgb(231, 231, 231);
+        &>div {
+            @include row-a-center();
+            &>img {
+                @include content-head-shot();
+            }
+            &>div {
+                @include column();
+                padding: 0 0 0 15px;
+                &>span:first-child {
+                    font-weight: 300;
+                    color: rgb(105, 105, 105);
+                }
+                &>span:nth-child(2) {
+                    font-size: 14px;
+                    font-weight: 300;
+                    color: rgb(153, 153, 153);
+                }
+            }
+        }
+        &>button {
+            @include follow-button();
+        }
+    }
+    &__Title {
+        @include content-block-title();
+    }
+    &__Reply {
+        font-family: sans-serif;
+        font-weight: 100;
+        font-size: 14px;
+        color: rgb(134, 134, 134);
+        letter-spacing: 0.8px;
+        padding: 0 0 0 20px;
+    }
+    &__ArticleAd {
+        width: 100%;
+    }
+    &__Comments {
+        padding: 20px 60px 70px 60px;
+        width: calc(100% - 120px);
+        background-color: rgb(240, 240, 240);
+        border-bottom: 1px solid rgb(231, 231, 231);
+        &>div:nth-child(2) {
+            cursor: zoom-in;
+            max-width: 100%;
+            max-height: 300px;
+            margin: 0 0 10px 0;
+        }
+        &>img {
+            font-size: 18px;
+            padding: 23px 0 15px 0;
+        }
+    }
+    &__CommenterInfo {
+        @include row-a-center();
+        justify-content: space-between;
+        width: 100%;
+        padding: 16px 0;
+        &>div:first-child {
+            &>div {
+                @include row-a-center();
+                &>img {
+                    @include content-head-shot();
+                }
+                &>div {
+                    @include column();
+                    padding: 0 0 0 15px;
+                    &>span:first-child {
+                        font-weight: 300;
+                    }
+                    &>span:nth-child(2) {
+                        font-size: 14px;
+                        font-weight: 300;
+                        color: rgb(153, 153, 153);
+                    }
+                }
+            }
+        }
+        &>div:nth-child(2) {
+            cursor: pointer;
+            @include row-a-center();
+            justify-content: right;
+            &>i {
+                cursor: pointer;
+                font-size: 24px;
+                color: rgb(197, 197, 197);
+                padding: 0 15px 3px 0;
+                & :hover {
+                    color: rgb(214, 200, 200);
+                    transition: 0.2s;
+                }
+            }
+            &>span {
+                font-family: sans-serif;
+                font-weight: 300;
+                font-size: 13px;
+                color: rgb(110, 110, 110);
+                letter-spacing: 0.8px;
+                padding: 0 0 3px 0;
+            }
+        }
+    }
+    &__ReplyInput {
+        @include column-a-center;
+        background-color: rgb(240, 240, 240);
+        height: 231px;
+        &>input {
+            width: 608px;
+            height: 62px;
+            padding-left: 17px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 200;
+            color: rgb(179, 179, 179);
+            background-color: #fff;
+            border: 1px solid rgb(233, 233, 233);
+            border-radius: 4px;
+            outline: none;
+        }
+    }
+    &__FixedReplyInput {
+        @include row-a-center;
+        justify-content: space-between;
+        position: fixed;
+        z-index: 30;
+        bottom: 0px;
+        background-color: rgb(255, 255, 255);
+        width: 606px;
+        height: 48px;
+        padding: 0px 60px;
+        background-color: #fff;
+        &>input {
+            width: 448px;
+            font-size: 16px;
+            font-weight: 200;
+            color: rgb(122, 122, 122);
+            border: none;
+            outline: none;
+        }
+        &>div {
+            @include row-a-center;
+            &>i {
+                @include content-reply-icon();
+            }
+        }
+    }
+}

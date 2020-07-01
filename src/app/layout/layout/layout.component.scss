@@ -1,0 +1,20 @@
+@import "../../../styles/color";
+@import "../../../styles/mixin";
+
+.Layout { 
+    width: 100vw;
+    height: 100vh;
+    background-color: $layout3;
+    &__Container {
+        @include column();
+        height: 100%;
+    }
+    &__Main {
+        @include row();
+        width: 100%;
+    }
+
+    &__Page {
+        overflow-x: hidden;
+    }
+}

@@ -1,0 +1,15 @@
+<div class="Navigation">
+  <div class="Navigation__Contanier">
+      <span class="Navigation__Main" (click)="this.toArticle('article')">
+        <i class="fa fa-book"></i>
+        <span>所有看板</span>
+      </span>
+      <div class="Navigation__Hot">
+        <h1>PPT 即時看板</h1>
+        <span *ngFor="let board of this.mock" (click)="this.toArticle(board.key)">
+          <img src="../../assets/img/board/{{board.img}}.png" alt="">
+          {{board.zh}}
+        </span>
+      </div>
+  </div>
+</div>

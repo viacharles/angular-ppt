@@ -1,0 +1,229 @@
+@import "../../../styles/color";
+@import "../../../styles/mixin";
+
+.Article {
+    width: 100vw;
+    height: 200%;
+
+    &__Container {
+        @include column();
+        padding: 20px 0 0 0;
+    }
+    &__Filter {
+        position: sticky;
+        z-index: 10;
+        top: -15px;
+        @include row-between();
+        width: 638px;
+        height: 60px;
+        padding: 20px 45px 0 45px;
+        background-color: rgb(255, 255, 255);
+        border-bottom: 1px solid rgb(226, 226, 226);
+        border-radius: 5px 5px 0 0;
+
+        & > div:first-child {
+            @include row-a-center();
+            & > span {
+                cursor: pointer;
+                @include row-aj-center();
+                padding: 0 16px;
+                margin: 0 20px 0 0;
+                font-size: 16px;
+            }
+            > span:first-child:hover > span::before {
+               @include hover-down-line();
+               left: 52px;
+            }
+            > span:nth-child(2):hover > span::before {
+               @include hover-down-line();
+            }
+        }
+        & > div:nth-child(2) {
+            @include row-a-center();
+            justify-content: flex-end;
+            font-size: 14px;
+            font-weight: 300;
+            color: rgb(141, 141, 141);
+            padding: 0 0 0 20px;
+            & > span:first-child {
+                @include row-a-center();
+                height: 30px;
+                width: 11px;
+                padding: 0 4px 0 0;
+                margin: 0;
+                border-left: 1px solid rgb(221, 221, 221);
+            }
+            & > div {
+                cursor: pointer;
+                @include row-a-center();
+                & > i {
+                    font-size: 20px;
+                    color: rgb(15, 127, 255);
+                    padding: 0 4px 0 6px;
+                }
+                & > span:first-child {
+                    display: flex;
+                    width: 30px;
+                    height: 20px;
+                    color: rgb(15, 127, 255);
+                }
+                & > i:nth-child(3) {
+                    font-size: 17px;
+                    color: rgb(15, 127, 255);
+                    padding: 0 18px 0 4px;
+                }
+            }
+        }
+    }
+
+    &__Cover {
+        width: 728px;
+        background-color: rgb(14, 14, 14);
+        margin: 0;
+    }
+    & > div:nth-child(3) {
+        @include column();
+        width: 638px;
+        padding: 0px 45px;
+        margin: 0;
+        background-color: #fff;
+    }
+
+    &__Cloum {
+        cursor: pointer;
+        @include row-between();
+        width: 608px;
+        padding: 19px 60px;
+        border-bottom: 1px solid rgb(231, 231, 231);
+        background-color: #fff;
+
+        & > div:first-child {
+            @include column();
+            justify-content: flex-start;
+            align-items: flex-start;
+            & > div:first-child {
+                @include row-a-center();
+                justify-content: flex-start;
+                color: rgb(99, 99, 99);
+                padding: 0 0 px 0;
+                & > span {
+                    font-family: sans-serif;
+                    font-weight: 300;
+                    font-size: 14px;
+                    & > img {
+                        width: 21px;
+                        height: 21px;
+                        padding: 0 8px 0 0;
+                    }
+                }
+                & > span:nth-child(3) {
+                    @include spot();
+                }
+                & > span:nth-child(5) {
+                    @include spot();
+                }
+            }
+            & > div:nth-child(2) {
+                font-size: 18px;
+                font-weight: 500;
+                color: rgb(7, 7, 7);
+                padding: 9px 0 0 2px;
+            }
+            & > div:nth-child(3) {
+                font-size: 14px;
+                font-weight: 300;
+                color: rgb(59, 59, 59);
+                padding: 8px 5px 0 2px;
+            }
+        }
+
+        & > div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            & > img {
+                width: 25px;
+                height: 25px;
+                padding: 0 0 15px 0;
+            }
+            & > div {
+                background-image: url(../../../assets/img/cat.png);
+                background-size: cover;
+                background-repeat: none;
+                width: 80px;
+                height: 80px;
+                border: 0.5px solid rgb(189, 189, 189);
+                border-radius: 3px;
+            }
+        }
+        & > div:nth-child(3) {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 728px;
+            border-radius: 0 0 5px 5px;
+            background-color: rgb(238, 238, 238);
+            padding: 0 0 20px 0;
+            margin: 0 0 100px 0;
+        }
+    }
+
+    &__Respond {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 15px 0 0 3px;
+        & > img:first-child {
+            width: 23px;
+            height: 23px;
+        }
+        & > span:nth-child(2) {
+            @include respond-amount();
+        }
+        & > img:nth-child(3) {
+            width: 23px;
+            height: 23px;
+            padding: 0 5px 0 7px;
+        }
+        & > span:nth-child(4) {
+            @include respond-amount();
+        }
+        & > img:nth-child(5) {
+            width: 27px;
+            height: 27px;
+            padding: 0 0 0 7px;
+        }
+        & > span:nth-child(6) {
+            @include respond-amount();
+        }
+        & > i {
+            font-size: 18px;
+            color: rgb(211, 211, 211);
+            padding: 0 0 0 20px;
+        }
+        & > div:nth-child(8) {
+            font-family: sans-serif;
+            font-weight: 100;
+            font-size: 14px;
+            color: rgb(134, 134, 134);
+            letter-spacing: 0.8px;
+            padding: 0 0 0 5px;
+        }
+    }
+
+    &__Pages {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 728px;
+        padding: 30px 0 20px 0px;
+        font-size: 20px;
+        letter-spacing: 20px;
+        color: rgb(62, 79, 109);
+        background-color: rgb(238, 238, 238);
+        border-radius: 0 0 8px 8px;
+        & > a {
+            color: rgb(62, 79, 109);
+        }
+    }
+}
