@@ -164,12 +164,10 @@
         width: 100%;
     }
     &__Comment {
-        // padding: 20px 60px 70px 60px;
         width: 100%;
         background-color: rgb(240, 240, 240);
         border-bottom: 1px solid rgb(231, 231, 231);
         &>div:nth-child(2) {
-            cursor: zoom-in;
             max-width: 100%;
             max-height: 300px;
             margin: 0 0 10px 0;
