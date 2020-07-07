@@ -10,6 +10,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { LayoutComponent } from './layout/layout/layout.component';
 import { OverlayComponent } from './overlay/overlay/overlay.component';
 import { FormsModule } from '@angular/forms';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     NavigationComponent,
     NavComponent,
     LayoutComponent,
-    OverlayComponent
+    OverlayComponent,
+    CommentComponent
   ],
   imports: [
     FormsModule,

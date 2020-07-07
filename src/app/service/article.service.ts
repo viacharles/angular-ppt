@@ -11,6 +11,7 @@ export class ArticleService {
 
   public search(key) {
     this.articles = BOARD_INTERESTING.article.filter(content => content.title.includes(key));
+    BOARD_INTERESTING = 1;
   }
 
 }
