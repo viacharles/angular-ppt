@@ -1,6 +1,5 @@
 @import "../../../styles/color";
 @import "../../../styles/mixin";
-
 .Overlay {
     @include column-a-center;
     position: fixed;
@@ -8,31 +7,57 @@
     width: 100%;
     height: 100%;
     background-color: rgba(22, 22, 22, 0.7);
-
     &__Container {
-        position: relative;
-        width: 728px;
+        width: 100%;
         height: 100%;
-        background-color: #fff;
-        overflow: auto;
-        & > button {
-            cursor: pointer;
+        &>span:nth-child(1) {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color:inherit;
-            border: none;
-            
-            &  > i {
-                color: rgb(189, 189, 189);
-                font-weight: 200;
-                font-size: 23px;
+            z-index: 21;
+            opacity: 1;
+        }
+        &>span:nth-child(2) {
+            position: relative;
+            @include row-a-center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            &>span:first-child {
+                cursor: pointer;
+                position: relative;
+                z-index: 22;
+                @include column-a-center();
+                height: 75px;
+                width: 75px;
+                padding: 45px 0;
+                &>i {
+                    color: rgb(255, 255, 255);
+                    font-size: 60px;
+                    opacity: 0.8;
+                }
+            }
+            &>div {
+                position: relative;
+                max-width: 728px;
+                min-width: 728px;
+                height: 100%;
+                background-color: #fff;
+                overflow: auto;
+            }
+            &>span:nth-child(3) {
+                cursor: pointer;
+                @include column-a-center();
+                justify-content: center;
+                position: relative;
+                z-index: 22;
+                height: 160px;
+                width: 90px;
+                color: rgb(46, 175, 111);
+                &>i {
+                    color: rgb(243, 243, 243);
+                    font-size: 60px;
+                    opacity: 0.8;
+                }
             }
         }
-
     }
-    
 }
-
-
-

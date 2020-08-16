@@ -11,7 +11,7 @@ export class OverlayComponent implements OnInit {
 
   constructor(
     public router: Router ,
-    public $overlay: OverlayService
+    public $overlay: OverlayService,
   ) { }
 
   ngOnInit(): void {
