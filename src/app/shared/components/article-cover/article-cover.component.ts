@@ -16,12 +16,15 @@ export class ArticleCoverComponent implements OnInit {
   constructor(
     public $overlay: OverlayService,
     public $article: ArticleService,
-    public $auth: AuthService,
+    public $auth: AuthService
   ) { }
+  public isDialog: boolean;
 
   ngOnInit(): void {
   }
 
-
+  public onLoginDialog() {
+    this.$auth.isLogin ? this.isDialog = false : this.isDialog = true;
+  }
 
 }
