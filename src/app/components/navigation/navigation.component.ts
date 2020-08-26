@@ -1,5 +1,6 @@
+import { AuthService } from './../../service/auth.service';
+import { ArticleService } from 'src/app/service/article.service';
 import { Router } from '@angular/router';
-import { BOARD_TYPE } from './../../utility/mock';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,10 +11,10 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    public $article: ArticleService,
+    public $auth: AuthService,
   ) { }
-
-  public mock = BOARD_TYPE;
 
   ngOnInit(): void {
   }

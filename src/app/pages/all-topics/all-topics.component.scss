@@ -45,7 +45,7 @@
                 // visibility: visible;
             }
             &>ul:nth-child(3) {
-                @include drop-list;
+                // @include drop-list;
                 top: 95px;
                 opacity: 0;
                 // visibility: hidden;
@@ -56,11 +56,11 @@
                     padding: 5px 12px;
                     font-size: 14px;
                     &:hover {
-                        background-color: $menu-hover;
+                        // background-color: $menu-hover;
                     }
                 }
                 &>li:first-child {
-                    @include drop-list-horn;
+                    // @include drop-list-horn;
                     top: 3px;
                     right: 94px;
                 }

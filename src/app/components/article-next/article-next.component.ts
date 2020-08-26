@@ -15,8 +15,4 @@ export class ArticleNextComponent implements OnInit {
   ngOnInit(): void {
   }
 
-// public articleNextReverse {
-//   if()
-// }
-
 }

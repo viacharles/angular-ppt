@@ -1,6 +1,6 @@
-<div class="ArticleNext" *ngIf="this.$overlay.leftChevron" [ngStyle]="{'opacity':this.$overlay.articleNextControl,'transition':0.3}">
+<div class="ArticleNext" *ngIf="this.$overlay.leftChevron" [ngStyle]="{'opacity':1,'transition':0.3}">
     <div class="ArticleNext__Container">
-        <div *ngIf="this.$overlay.leftChevron" [ngStyle]="{'flex-direction':this.$overlay.reverse}">
+        <div [ngStyle]="{'flex-direction':this.$overlay.reverse}">
             <span>
                 <span>{{this.$overlay.whichNext}}</span>
             </span>

@@ -16,9 +16,9 @@ export class ArticleService {
   private articles: Article[] = [];
   public hotboards: Hotboard[];
   public board: string;
-  // public search(key) {
-  //   this.articles = BOARD_INTERESTING.article.filter(content => content.title.includes(key));
-  // }
+  public search(key) {
+    this.articles = this.articles.filter(content => content.title.includes(key));
+  }
 
   public setBoardFilter(board: string) {
     this.board = board;
@@ -26,7 +26,6 @@ export class ArticleService {
 
   public getArticles() {
     const articleAfterFilter = this.board ? this.articles.filter(article => article.board === this.board) : this.articles;
-    console.log('board', this.board )
     return this.chunkArticles(articleAfterFilter);
   }
 
@@ -45,24 +44,25 @@ export class ArticleService {
 
 
   private setArticles() {
-    this.http.get('https://pttlite.ddns.net').subscribe(
+    this.http.get('https://pttlite.cloudns.asia/index').subscribe(
       (res: any) => {
         console.log(res);
-        this.articles = res.article.map(
+        this.articles = res.articles.map(
           article => new Article(
             article.article_url,
             article.author,
-            article.author_ip,
+            article.ip_location,
             article.board_name,
-            article.body,
+            article.body_preview,
             article.create_time,
-            article.like,
-            article.respone,
+            article.like_count,
+            article.neutral_count,
             article.title,
-            article.unlike,
+            article.dislike_count,
+            article.disscussion_count,
           )
         );
-        this.hotboards = res.hotboard.map(
+        this.hotboards = res.top_8_like_count_boards.map(
           hotboard => new Hotboard(
             hotboard.board_class,
             hotboard.board_name,

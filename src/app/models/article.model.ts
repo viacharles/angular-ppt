@@ -11,6 +11,7 @@ export class Article {
         public respond: number,
         public title: string,
         public unlike: number,
+        public allcount: number,
     ) {
 
     }

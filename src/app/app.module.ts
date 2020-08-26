@@ -1,3 +1,7 @@
+import { ArticleNextComponent } from './components/article-next/article-next.component';
+import { LoginOverlayComponent } from './overlay/login-overlay/login-overlay.component';
+import { FootOverlayComponent } from './overlay/foot-overlay/foot-overlay.component';
+import { AllTopicsComponent } from './pages/all-topics/all-topics.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +15,8 @@ import { LayoutComponent } from './layout/layout/layout.component';
 import { OverlayComponent } from './overlay/overlay/overlay.component';
 import { FormsModule } from '@angular/forms';
 import { CommentComponent } from './components/comment/comment.component';
+import { ArticleCoverComponent } from './shared/components/article-cover/article-cover.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +25,11 @@ import { CommentComponent } from './components/comment/comment.component';
     ArticleContentComponent,
     RegisterComponent,
     NavigationComponent,
+    AllTopicsComponent,
+    ArticleCoverComponent,
+    FootOverlayComponent,
+    LoginOverlayComponent,
+    ArticleNextComponent,
     NavComponent,
     LayoutComponent,
     OverlayComponent,
@@ -27,7 +38,8 @@ import { CommentComponent } from './components/comment/comment.component';
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

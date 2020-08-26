@@ -16,9 +16,7 @@ export class NavComponent implements OnInit {
     public $article: ArticleService
   ) { }
 
-  public test = false;
   public menu = false;
-
   public hotKey;
 
   ngOnInit(): void {
@@ -29,7 +27,6 @@ export class NavComponent implements OnInit {
   }
 
   public toPage(path) {
-    this.test = true;
     this.router.navigate([path]);
   }
 

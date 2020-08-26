@@ -13,7 +13,10 @@ export class LayoutComponent implements OnInit {
     public router: Router ,
   ) { }
 
+  public disabledScroll: boolean;
+
   ngOnInit(): void {
   }
+  
 
 }
