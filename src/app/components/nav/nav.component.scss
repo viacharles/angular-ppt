@@ -82,9 +82,8 @@
             font-size: 22px;
         }
         .open-menu {
-            visibility: visible;
             opacity: 1;
-            transition: 0.3s;
+            transition: 2s;
         }
         &>ul {
             position: fixed;
@@ -97,7 +96,6 @@
             border-radius: 11px;
             background-color: #fff;
             list-style: none;
-            // visibility: hidden;
             opacity: 0;
             user-select: none;
             &>li {

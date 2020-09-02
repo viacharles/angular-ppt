@@ -16,6 +16,8 @@ export class ArticleService {
   private articles: Article[] = [];
   public hotboards: Hotboard[];
   public board: string;
+
+
   public search(key) {
     this.articles = this.articles.filter(content => content.title.includes(key));
   }
@@ -44,7 +46,7 @@ export class ArticleService {
 
 
   private setArticles() {
-    this.http.get('https://pttlite.cloudns.asia/index').subscribe(
+    this.http.get('https://pttlite.ddns.net/index').subscribe(
       (res: any) => {
         console.log(res);
         this.articles = res.articles.map(

@@ -95,7 +95,7 @@
     color: rgb(199, 199, 199);
     font-size: 22px;
     padding: 0 25px 0 0;
-    > :hover {
+    ＆:hover {
         background-color: rgb(21, 127, 197);
     }
 }
@@ -109,7 +109,58 @@
     background-color: rgb(21, 127, 197);
     border: none;
     border-radius: 10px;
-    > :hover {
+    ＆:hover {
         background-color: rgb(6, 99, 161);
+    }
+}
+
+// ----- 菜 單 ----- //
+// 菜單，大框架
+@mixin ul {
+    position: fixed;
+    z-index: 19;
+    top: 145px;
+    right: 390px;
+    width: 160px;
+    padding: 9px 0px;
+    border-radius: 11px;
+    background-color: #fff;
+    list-style: none;
+    filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.3));
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: 19;
+        top: -6px;
+        right: 22px;
+        width: 14px;
+        height: 14px;
+        background-color: rgb(255, 255, 255);
+        transform: rotate(45deg);
+        border-radius: 4px;
+    }
+}
+
+@mixin article-head-li {
+    @include row-a-center();
+    justify-content: space-between;
+    cursor: pointer;
+    height: 28px;
+    padding: 5px 12px;
+    color: rgb(119, 119, 119);
+    font-size: 14px;
+    font-weight: 400;
+    &:hover {
+        background-color: rgb(236, 236, 236);
+    }
+    &>span {
+        @include row-a-center();
+        &>i {
+            font-size: 19px;
+            padding: 0 10px 0 0;
+        }
+    }
+    &>i {
+        font-size: 14px;
     }
 }

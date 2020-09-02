@@ -10,15 +10,13 @@ export class OverlayService {
 
 
   public isArticle = false;
-  public a = 1;
-  public close = false;
   public reverse: string;
   public whichNext: string;
   public leftChevron = false;
   public rightChevron = false;
 
   public closeArticle() {
-    this.close = !this.close;
+    this.isArticle = !this.isArticle;
   }
 
   public articleNextLeftIn() {

@@ -53,6 +53,7 @@ export class AuthService {
   }
 
   public onLoginDialog() {
+    event.stopPropagation();
     this.isLogin ? this.isDialog = false : this.isDialog = true;
   }
 

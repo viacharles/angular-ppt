@@ -13,7 +13,7 @@
                     <i class="fa fa-caret-down"></i>
                 </div>
                 <ul #tmenu *ngIf="this.isMenu" [ngClass]="{'open-menu': this.isMenu}">
-                    <li></li>
+                    <!-- <li></li> -->
                     <li (click)="this.isHot()" [ngStyle]="{'color' : this.isIcon? 'rgb(15, 127, 255)' : 'rgb(140, 140, 140)'}">
                         <span>
                             <i class="fa fa-fire"></i>
@@ -36,8 +36,9 @@
         <!-- 內容文章 -->
         <div class="Article__SmallGrids">
             <div (click)="this.$overlay.isArticle = true" *ngFor="let article of this.getDisplayArticles()">
-                <app-article-cover [article]="article"></app-article-cover>
-                <span></span>
+                <span>
+                    <app-article-cover [article]="article"></app-article-cover>
+                </span>
             </div>
         </div>
         <div>

@@ -20,7 +20,7 @@
         background-color: #fff;
         border-radius: 13px;
         animation-name: zoomIn;
-        animation-duration: 1s;
+        animation-duration: 0.2s;
         &>span:first-child {
             width: 100%;
             font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, PingFang TC, 黑體-繁, Heiti TC, 蘋果儷中黑, Apple LiGothic Medium, 微軟正黑體, Microsoft JhengHei, sans-serif;
@@ -70,12 +70,12 @@
 }
 
 @keyframes zoomIn {
-    from {
-        scale: (0.5);
+    0% {
+        transform: scale(0.7);
         opacity: 0%;
     }
-    to {
-        scale: (1);
+    100% {
+        transform: scale(1);
         opacity: 100%;
     }
 }

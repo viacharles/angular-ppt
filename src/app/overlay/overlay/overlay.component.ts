@@ -16,7 +16,4 @@ export class OverlayComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public plus(){
-    this.$overlay.a = this.$overlay.a + 1 ;
-  }
 }

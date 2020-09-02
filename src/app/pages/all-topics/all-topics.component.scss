@@ -42,13 +42,11 @@
             .open-menu {
                 opacity: 1;
                 transition: 0.3s;
-                // visibility: visible;
             }
             &>ul:nth-child(3) {
                 // @include drop-list;
                 top: 95px;
                 opacity: 0;
-                // visibility: hidden;
                 &>li {
                     cursor: pointer;
                     @include row-a-center();
