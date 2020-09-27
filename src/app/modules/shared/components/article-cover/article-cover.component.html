@@ -1,0 +1,32 @@
+<div class="ArticleCover">
+    <div class="ArticleCover__Container">
+        <div>
+            <div>
+                <span><img src="../../../../assets/img/A.png" alt=""></span>
+                <span> {{this.article.board}} </span>
+                <span>．</span>
+                <span> {{this.article.authorCountry}} </span>
+                <span>．</span>
+                <span> {{this.article.time}} </span>
+            </div>
+            <div> {{this.article.title}} </div>
+            <div>{{this.article.snapshot}}</div>
+            <div class="ArticleCover__Respond">
+                <img src="../../../../assets/img/1x/good.png" alt="">
+                <span> {{this.article.like}} </span>
+                <img src="../../../../assets/img/1x/normal.png" alt="">
+                <span>{{this.article.respond}}</span>
+                <img src="../../../../assets/img/1x/bad.png" alt="">
+                <span>{{this.article.unlike}}</span>
+                <span (click)="this.$auth.onLoginDialog($event)">
+                    <i class="fa fa-bookmark"></i>
+                    <div (click) = 'this.toggle()'>收藏</div>
+                </span>
+            </div>
+        </div>
+        <div>
+            <img src="../../../../assets/img/1x/function.png" alt="">
+            <div class="img"></div>
+        </div>
+    </div>
+</div>

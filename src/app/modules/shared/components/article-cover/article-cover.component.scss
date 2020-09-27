@@ -1,0 +1,135 @@
+@import "../../../../../styles/color";
+@import "../../../../../styles/mixin";
+.ArticleCover {
+    padding: 0;
+    &__Container {
+        cursor: pointer;
+        @include row-between();
+        width: 608px;
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        border: 0px;
+        &>div:first-child {
+            @include column();
+            justify-content: flex-start;
+            align-items: flex-start;
+            &>div:first-child {
+                @include row-a-center();
+                justify-content: flex-start;
+                color: rgb(99, 99, 99);
+                padding: 0 0 px 0;
+                &>span {
+                    font-family: sans-serif;
+                    font-weight: 300;
+                    font-size: 14px;
+                    &>img {
+                        width: 21px;
+                        height: 21px;
+                        padding: 0 8px 0 0;
+                    }
+                }
+                &>span:nth-child(3) {
+                    @include spot();
+                }
+                &>span:nth-child(5) {
+                    @include spot();
+                }
+            }
+            &>div:nth-child(2) {
+                font-size: 18px;
+                font-weight: 500;
+                color: rgb(7, 7, 7);
+                padding: 9px 0 0 2px;
+            }
+            &>div:nth-child(3) {
+                font-size: 14px;
+                font-weight: 300;
+                color: rgb(59, 59, 59);
+                padding: 8px 5px 0 2px;
+            }
+        }
+        &>div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            &>img {
+                width: 25px;
+                height: 25px;
+                padding: 0 0 15px 0;
+            }
+            &>div {
+                background-image: url(../../../../../assets/img/cat.png);
+                background-size: cover;
+                background-repeat: none;
+                width: 80px;
+                height: 80px;
+                border: 0.5px solid rgb(189, 189, 189);
+                border-radius: 3px;
+            }
+        }
+        &>div:nth-child(3) {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 728px;
+            border-radius: 0 0 5px 5px;
+            background-color: rgb(238, 238, 238);
+            padding: 0 0 20px 0;
+            margin: 0 0 100px 0;
+        }
+        // &>span:last-child {
+        //     position: static;
+        //     z-index: 33;
+        //     width: 30px;
+        //     height: 20px;
+        //     top: 100px;
+        //     background-color: rgb(224, 56, 56);
+        // }
+    }
+    &__Respond {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 15px 0 0 3px;
+        &>img:first-child {
+            width: 23px;
+            height: 23px;
+        }
+        &>span:nth-child(2) {
+            @include respond-amount();
+        }
+        &>img:nth-child(3) {
+            width: 23px;
+            height: 23px;
+            padding: 0 5px 0 7px;
+        }
+        &>span:nth-child(4) {
+            @include respond-amount();
+        }
+        &>img:nth-child(5) {
+            width: 27px;
+            height: 27px;
+            padding: 0 0 0 7px;
+        }
+        &>span:nth-child(6) {
+            @include respond-amount();
+        }
+        &>span {
+            @include row-a-center;
+            &>i {
+                font-size: 18px;
+                color: rgb(211, 211, 211);
+                padding: 0 0 0 20px;
+            }
+            &>div {
+                font-family: sans-serif;
+                font-weight: 100;
+                font-size: 14px;
+                color: rgb(134, 134, 134);
+                letter-spacing: 0.8px;
+                padding: 0 0 0 5px;
+            }
+        }
+    }
+}

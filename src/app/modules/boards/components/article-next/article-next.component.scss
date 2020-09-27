@@ -1,0 +1,81 @@
+@import "../../../../../styles/color";
+@import "../../../../../styles/mixin";
+.ArticleNext {
+    position: fixed;
+    z-index: 21;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background-color: rgba(22, 22, 22, 0.7);
+    &__Container {
+        width: 100%;
+        height: 100%;
+        &>div {
+            position: fixed;
+            z-index: 22;
+            top: 242px;
+            left: 193px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 717px;
+            height: 160px;
+            background-color: rgb(255, 85, 85);
+            border-radius: 4px;
+            &>span:first-child {
+                @include column-a-center();
+                justify-content: flex-end;
+                min-width: 76px;
+                min-height: 160px;
+                background-color: purple;
+                // &>i {
+                //     color: rgb(243, 243, 243);
+                //     font-size: 60px;
+                //     padding: 25px 0 0 0;
+                //     opacity: 0.8;
+                // }
+                &>span {
+                    color: rgb(243, 243, 243);
+                    font-size: 10px;
+                    padding: 0 0 35px 0;
+                }
+            }
+            &>span:nth-child(2) {
+                padding: 23px 0 23px 15px;
+            }
+        }
+        &>div:nth-child(2) {
+            position: fixed;
+            z-index: 22;
+            top: 250px;
+            right: 75px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            min-width: 717px;
+            min-height: 160px;
+            background-color: rgb(255, 85, 85);
+            border-radius: 4px;
+            &>span:first-child {
+                padding: 23px 0 23px 15px;
+            }
+            &>span:nth-child(2) {
+                @include column-a-center();
+                justify-content: center;
+                min-width: 76px;
+                min-height: 160px;
+                background-color: purple;
+                &>i {
+                    color: rgb(243, 243, 243);
+                    font-size: 60px;
+                    opacity: 0.8;
+                }
+                &>span {
+                    color: rgb(243, 243, 243);
+                    font-size: 10px;
+                    padding: 10px 0;
+                }
+            }
+        }
+    }
+}

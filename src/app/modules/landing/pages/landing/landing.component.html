@@ -1,0 +1,57 @@
+<div class="Landing">
+    <div class="Landing__Container">
+        <div>
+            <img src="../../../assets/img/idea.svg" alt="">
+            <span>年輕人都在 PPT 上討論</span>
+            <span>
+                <span>不想錯過任何有趣的話題嗎？</span>
+            <span>趕快加入我們吧！</span>
+            </span>
+            <h3 (click)="this.toPage('article')">先看討論區</h3>
+        </div>
+        <div>
+            <div class="Landing__list">
+                <span>開始使用</span>
+                <button class="Landing__Fb">
+                    <img src="../../../assets/img/Facebook_icon_2013.svg.png" alt="">
+                    <span>使用 Facebook 註冊 / 登入</span>
+                </button>
+                <button class="Landing__Google">
+                    <img src="https://img.icons8.com/color/48/000000/google-logo.png" />
+                    <span>使用 Google 註冊 / 登入</span>
+                </button>
+                <!-- 中線 -->
+                <div class="Landing__Line">
+                    <span></span><span>或</span><span></span>
+                </div>
+                <div class="Landing__Input">
+                    <span>常用信箱</span>
+                    <input (blur)='this.emailValidation($event.target.value)' [(ngModel)]='this.params.email' (ngModelChange)='this.emailValidation($event)' type="text" placeholder="輸入信箱">
+                    <span *ngIf='this.emailWarn'>{{this.emailWarn}}</span>
+                </div>
+                <div class="Landing__Input">
+                    <span>密碼</span>
+                    <input (blur)='this.passwordValidation($event.target.value)' [(ngModel)]='this.params.password' (ngModelChange)="this.passwordValidation($event)" type="{{this.isDisplayPassword? 'text': 'password'}}" placeholder="輸入密碼">
+                    <span *ngIf='this.passwordWarn'>{{this.passwordWarn}}</span>
+                </div>
+                <div>
+                    <div class="Landing__Check">
+                        <input (change)='this.isDisplayPassword =!this.isDisplayPassword' type="checkbox" id="checkbox3">
+                        <label for="checkbox3">顯示密碼</label>
+                    </div>
+                    <span class="Landing__Question">
+                        <a>未收到驗證信</a>
+                        <span> 或 </span>
+                    <a>忘記密碼</a>
+                    </span>
+                </div>
+                <button class="Landing__LoginButton{{this.isValidPassword && this.isValidEmail? 'On' : 'Off'}}" (click)="this.$auth.login(this.params)">註冊 / 登入</button>
+                <div class="Landing__Agreement">
+                    <span>註冊/登入即代表您同意遵守</span>
+                    <a>Dcard 使用協議</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

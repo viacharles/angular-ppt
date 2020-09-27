@@ -1,0 +1,14 @@
+<div class="Navigation">
+    <div class="Navigation__Contanier">
+        <span class="Navigation__Main" (click)="this.toArticle('all-topics')">
+            <i class="fa fa-book "></i>
+            <span >所有看板</span>
+        </span>
+        <div class="Navigation__Hot ">
+            <h1>PPT 即時看板</h1>
+            <span *ngFor="let hotboard of this.$article.hotboards " (click)="this.$article.setBoardFilter(hotboard.boardName) " (click)="this.toArticle( 'article') ">
+                <span></span> {{hotboard.boardName}}
+            </span>
+        </div>
+    </div>
+</div>

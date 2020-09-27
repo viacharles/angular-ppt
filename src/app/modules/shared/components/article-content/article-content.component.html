@@ -1,0 +1,120 @@
+<div class="ArticleContent" (scroll)='this.onScroll($event.target)'>
+    <div class="ArticleContent__Container">
+        <!--作者資訊-->
+        <div class="ArticleContent__Info">
+            <img src="../../../assets/img/A.png" alt="">
+            <span>
+                <span>台灣</span>
+            <span>content[2]</span>
+            </span>
+            <button (click)="this.$overlay.closeArticle()">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <!-- 大標題 -->
+        <div class="ArticleContent__MainTitle"> content[1] </div>
+        <!-- 類別＆時間 -->
+        <div class="ArticleContent__ClassTime">
+            <div>有趣</div>
+            <span>．</span>
+            <div> content[6] </div>
+        </div>
+        <!-- 內文 -->
+        <div class="ArticleContent__Content"> content[4] </div>
+        <!-- 迴響 -->
+        <ul class="ArticleContent__Respond">
+            <li>
+                <img src="../../../assets/img/1x/good.png" alt="">
+                <span> good[0] </span>
+                <img src="../../../assets/img/1x/normal.png" alt="">
+                <span> neutral[0] </span>
+                <img src="../../../assets/img/1x/bad.png" alt="">
+                <span> bad[0] </span>
+            </li>
+            <li>
+                <i class="fa fa-bookmark"></i>
+                <div>收藏</div>
+            </li>
+        </ul>
+        <!-- 文章資訊 -->
+        <div #tInfo class="ArticleContent__Title">文章資訊</div>
+        <a class="ArticleContent__ClassInfo">
+            <div>
+                <img src="../../../assets/img/A.png" alt="">
+                <div>
+                    <span>台灣</span>
+                    <span>5篇文章 | 57人</span>
+                </div>
+            </div>
+            <button>追蹤</button>
+        </a>
+        <a class="ArticleContent__ClassInfo">
+            <div>
+                <img src="../../../assets/img/A.png" alt="">
+                <div>
+                    <span>有趣</span>
+                    <span>每天有80篇貼文</span>
+                </div>
+            </div>
+            <button>追蹤</button>
+        </a>
+    </div>
+
+    <!-- 廣告 -->
+    <img class="ArticleContent__ArticleAd" src="../../../assets/img/AD1.png" alt="">
+    <!-- 熱門回應 -->
+    <div class="ArticleContent__Comments">
+        <div class="ArticleContent__Title">熱門回應</div>
+        <div class="ArticleContent__Comment">
+            <div class="ArticleContent__CommenterInfo">
+                <div>
+                    <img src="../../../assets/img/A.png" alt="">
+                    <div>
+                        <span>紐西蘭</span>
+                        <span>Ｂ1 | {{ d[5] </span>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa fa-heart"></i>
+                    <span>9330</span>
+                </div>
+            </div>
+            <div class="ArticleContent__ReplyArticleContent">{{ d[1] {{ d[3] </div>
+            <img class="ArticleContent__ReplyArticleImg" src="../../../assets/img/img.png" alt="">
+        </div>
+    </div>
+    <!-- 全部回應 -->
+    <div class="ArticleContent__Comments">
+        <div class="ArticleContent__Title">共 <span>{{111</span>則回應</div>
+        <div class="ArticleContent__Comment">
+            <div class="ArticleContent__CommenterInfo">
+                <div>
+                    <img src="../../../assets/img/A.png" alt="">
+                    <div>
+                        <span>紐西蘭</span>
+                        <span>Ｂ1 | {{ d[5] </span>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa fa-heart"></i>
+                    <span>9330</span>
+                </div>
+            </div>
+            <div>阿巴哺吧{{ d[1] {{ d[3] </div>
+            <img src="../../../assets/img/img.png" alt="">
+        </div>
+    </div>
+    <div class="ArticleContent__ReplyInput">
+        <input type="text" value="馬上回應搶第{{112樓">
+    </div>
+    <div class="ArticleContent__FixedReplyInput">
+
+        <input type="text" placeholder="回應...">
+        <div>
+            <i class="fa fa-heart"></i>
+            <i class="fa fa-bookmark"></i>
+            <i class="fa fa-ellipsis-v"></i>
+            <i class="fa fa-arrow-circle-down"></i>
+        </div>
+    </div>
+</div>

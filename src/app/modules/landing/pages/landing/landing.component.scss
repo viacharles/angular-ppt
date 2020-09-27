@@ -1,0 +1,212 @@
+@import "../../../../../styles/color";
+@import "../../../../../styles/mixin";
+.Landing {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    &__Container {
+        overflow: auto;
+        @include a();
+        @include row();
+        justify-content: center;
+        padding: 80px 0 0 0px;
+        font-size: 13px;
+        color: rgb(146, 146, 146);
+        &>div:nth-child(1) {
+            @include column-a-center();
+            padding: 10px 0 0 0;
+            &>img {
+                cursor: zoom-in;
+                width: 250px;
+                height: 250px;
+                padding: 77px 0 0 0;
+            }
+            &>img+span {
+                padding: 20px 0 0 0;
+                font-size: 32px;
+                font-weight: 500;
+                color: rgb(255, 255, 255);
+            }
+            &>span:nth-child(3) {
+                padding: 0 0 34px 0;
+                &>span {
+                    @include column-a-center();
+                    padding: 2px 0 0 0;
+                    font-size: 23px;
+                    font-weight: 400;
+                    color: rgb(174, 180, 189);
+                }
+            }
+            &>h3 {
+                cursor: pointer;
+                font-size: 15px;
+                font-weight: 400;
+                color: rgb(91, 176, 233);
+            }
+        }
+    }
+    &__list {
+        @include column-a-center();
+        width: 360px;
+        background-color: #fff;
+        padding: 30px 50px;
+        margin: 0 0 100px 100px;
+        border-radius: 4px;
+        &>span:first-child {
+            font-size: 30px;
+            font-weight: 400;
+            color: rgb(24, 24, 24);
+            padding: 0 0 10px 0;
+        }
+        &>div:nth-child(7) {
+            @include row-a-center;
+            padding: 4px 0 6px 0;
+            width: 100%;
+        }
+    }
+    &__Fb {
+        cursor: pointer;
+        @include row-a-center();
+        width: 100%;
+        background-color: rgb(66, 95, 156);
+        padding: 0px 16px;
+        border: none;
+        border-radius: 10px;
+        outline-style: none;
+        &>img {
+            width: 16px;
+            height: 16px;
+        }
+        &>span {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            letter-spacing: 1px;
+            font-weight: 300;
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            padding: 12px;
+        }
+    }
+    &__Google {
+        cursor: pointer;
+        @include row-a-center();
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        margin: 20px 0 0 0;
+        padding: 0px 16px;
+        border: 1px solid rgb(212, 212, 212);
+        border-radius: 10px;
+        outline-style: none;
+        &>img {
+            width: 18px;
+            height: 18px;
+        }
+        &>span {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            letter-spacing: 1px;
+            font-weight: 300;
+            font-size: 14px;
+            color: rgb(48, 48, 48);
+            padding: 12px;
+        }
+    }
+    &__Line {
+        @include row-a-center();
+        justify-content: space-between;
+        color: rgb(214, 214, 214);
+        width: 100%;
+        margin: 20px 0 0 0;
+        &>span:nth-child(odd) {
+            @include row-a-center();
+            width: 150px;
+            border-bottom: 1px solid rgb(228, 228, 228);
+        }
+    }
+    &__Input {
+        @include column();
+        width: 100%;
+        &>span:first-child {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            font-size: 16px;
+            color: rgb(95, 95, 95);
+            padding: 15px 0 0 0;
+        }
+        &>input {
+            @include row-a-center();
+            width: 94%;
+            height: 40px;
+            background-color: rgb(255, 255, 255);
+            margin: 7px 0 0 0;
+            padding: 0px 10px;
+            font-size: 15px;
+            font-weight: 300;
+            color: rgb(160, 160, 160);
+            border: 1px solid rgb(212, 212, 212);
+            border-radius: 10px;
+            outline-style: none;
+        }
+        &>span:nth-child(3) {
+            @include row-a-center();
+            justify-content: flex-start;
+            padding: 6px 0 0 10px;
+            margin: 0;
+            font-size: 12px;
+            color: rgb(253, 103, 103);
+        }
+    }
+    &__Check {
+        @include row-a-center();
+        cursor: pointer;
+        width: 100%;
+        &>input {
+            margin-right: 5px;
+            cursor: pointer;
+            width: 23px;
+            height: 23px;
+            position: relative;
+            border: chocolate 1px solid;
+            &:checked {
+                background-color: #0f97e7;
+                content: "✓";
+                font-size: 12px;
+            }
+        }
+        &>label {
+            cursor: pointer;
+            font-size: 15px;
+        }
+    }
+    &__Question {
+        @include row-a-center();
+        width: 100%;
+        font-size: 13px;
+        color: rgb(43, 43, 43);
+        &>a {
+            cursor: pointer;
+            color: rgb(48, 117, 196);
+            padding: 0 4px;
+            font-weight: 300;
+        }
+    }
+    &__LoginButtonOff {
+        @include login-button($bg-color: #b4b4b4);
+    }
+    &__LoginButtonOn {
+        @include login-button($bg-color: rgb(75, 139, 235));
+    }
+    &__agreement {
+        position: relative;
+        font-size: 13px;
+        color: $grey1;
+        &>a {
+            cursor: pointer;
+            color: $grey1;
+            border-bottom: 1px solid rgb(182, 182, 182);
+        }
+    }
+}

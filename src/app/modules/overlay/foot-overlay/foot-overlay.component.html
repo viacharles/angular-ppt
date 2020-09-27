@@ -1,0 +1,12 @@
+<div class="FootOverlay" *ngIf="!this.$auth.isLogin && this.router.url !== '/register' && this.router.url !== '/all-topics'&& this.router.url !== '/my'">
+    <div class=" FootOverlay__Container ">
+        <img src="../../../../assets/img/TagLogo.png " alt=" ">
+        <span>
+            <span>上大學、出社會的你，快來 {{ this.$article.board ? this.$article.board+'版' : "" }} 一起討論！立刻加入 PTT ！</span>
+        </span>
+        <ul>
+            <li (click)="this.toPage( 'register') ">登入</li>
+            <li (click)="this.toPage( 'register') ">註冊</li>
+        </ul>
+    </div>
+</div>

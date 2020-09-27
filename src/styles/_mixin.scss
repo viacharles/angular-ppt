@@ -100,6 +100,7 @@
     }
 }
 
+// ---- 按 鈕 ---- //
 @mixin follow-button {
     cursor: pointer;
     @include j-center();
@@ -109,14 +110,50 @@
     background-color: rgb(21, 127, 197);
     border: none;
     border-radius: 10px;
+    outline-style: none;
     ＆:hover {
         background-color: rgb(6, 99, 161);
+    }
+}
+
+@mixin login-button($bg-color) {
+    @include j-center();
+    width: 100%;
+    height: 44px;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: 500;
+    margin: 15px 0 15px 0;
+    background-color: $bg-color;
+    border: none;
+    border-radius: 10px;
+    outline-style: none;
+}
+
+@mixin my-collects-button ($i-color) {
+    @include row();
+    justify-content: flex-start;
+    align-items: center;
+    width: 208px;
+    height: 44px;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 0 16px;
+    background-color: rgba($color: #ffffff, $alpha: 0);
+    &:hover {
+        background-color: rgba($color: black, $alpha: 0.3);
+    }
+    &>i {
+        font-size: 23px;
+        color: $i-color;
+        padding: 0 15px 0 5px;
     }
 }
 
 // ----- 菜 單 ----- //
 // 菜單，大框架
 @mixin ul {
+    cursor: pointer;
     position: fixed;
     z-index: 19;
     top: 145px;
@@ -126,6 +163,7 @@
     border-radius: 11px;
     background-color: #fff;
     list-style: none;
+    user-select: none;
     filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.3));
     &::before {
         content: "";

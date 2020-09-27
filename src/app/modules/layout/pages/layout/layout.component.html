@@ -1,0 +1,13 @@
+<div class="Layout">
+    <div class="Layout__Container">
+        <app-nav></app-nav>
+        <div class="Layout__Main">
+            <app-navigation *ngIf="this.router.url !== '/register' && this.router.url !== '/my'"></app-navigation>
+            <div class="Layout__Page" [ngStyle]="{ 'overflow': this.disabledScroll? 'hidden':'auto'}">
+                <ng-content></ng-content>
+            </div>
+
+        </div>
+    </div>
+</div>
+<app-overlay></app-overlay>

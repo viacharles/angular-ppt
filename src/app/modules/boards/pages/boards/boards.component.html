@@ -1,0 +1,48 @@
+<div class="Boards" (scroll)='this.onScroll($event.target)'>
+    <div class="Boards__Container">
+        <div class="Boards__Filter">
+            <div>
+                <span><span></span>全部</span>
+                <span><span></span>追蹤</span>
+            </div>
+            <div>
+                <span></span> 文章排序依
+                <div (click)="this.isMenu? this.closeMenu() : this.openMenu()">
+                    <i class="fa {{this.isIcon ? 'fa-fire' : 'fa-star'}}"></i>
+                    <span>{{this.isIcon?'熱門':'最新'}}</span>
+                    <i class="fa fa-caret-down"></i>
+                </div>
+                <ul #tmenu *ngIf="this.isMenu" [ngClass]="{'open-menu': this.isMenu}">
+                    <!-- <li></li> -->
+                    <li (click)="this.isHot()" [ngStyle]="{'color' : this.isIcon? 'rgb(15, 127, 255)' : 'rgb(140, 140, 140)'}">
+                        <span>
+                            <i class="fa fa-fire"></i>
+                            <span>熱門</span>
+                        </span>
+                        <i class="fa fa-check" *ngIf="this.isIcon"></i>
+                    </li>
+                    <li (click)="this.isNew()" [ngStyle]="{'color' : !this.isIcon? 'rgb(15, 127, 255)' : 'rgb(140, 140, 140)'}">
+                        <span>
+                            <i class="fa fa-star"></i>
+                            <span>最新</span>
+                        </span>
+                        <i class="fa fa-check" *ngIf="!this.isIcon"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 首頁圖 -->
+        <img class="Boards__Cover" src="../../../assets/img/index2.png" alt="">
+        <!-- 內容文章 -->
+        <div class="Boards__SmallGrids">
+            <div (click)="this.$articleContent.setArticleContent(article.num,article.board)" *ngFor="let article of this.getDisplayArticles()">
+                <app-article-cover [article]="article"></app-article-cover>
+
+            </div>
+        </div>
+        <div>
+            <div class="Boards__Pages">
+                <span>已經沒有文章摟！</span>
+            </div>
+        </div>
+    </div>

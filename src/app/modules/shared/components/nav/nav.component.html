@@ -1,0 +1,32 @@
+<div class="Navbar">
+    <div class="Navbar__Container">
+        <div>
+            <img (click)="this.toPage('article')" (click)="this.$article.setBoardFilter('')" src="../../../assets/img/property.png" alt="">
+            <div class="Navbar__Search">
+                <input (click)='this.onclick()' [(ngModel)]='this.hotKey' type="text" (keydown.enter)="this.$article.search($event.target.value)" placeholder="搜尋..果敢不同很可以">
+                <button>
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="Navbar__Login">
+            <span>
+                <i class="fa fa-user" (click)="this.toPage('my')"></i>
+            </span>
+            <button (click)="this.toPage('register')">註冊 / 登入</button>
+            <i class="fa fa-caret-down" (click)="this.openMenu()"></i>
+            <ul *ngIf="this.menu" [ngClass]="{'open-menu': this.menu}">
+                <li></li>
+                <li>服務條款</li>
+                <li>常見問題</li>
+                <li>回報問題</li>
+                <li>品牌識別</li>
+                <li>徵才</li>
+                <li>商業合作</li>
+                <li>免費下載app</li>
+                <li *ngIf="this.$auth.isLogin" (click)="this.$auth.logout()">登出</li>
+            </ul>
+        </div>
+    </div>
+</div>
