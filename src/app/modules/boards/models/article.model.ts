@@ -78,3 +78,32 @@ export class Body {
     }
 }
 
+export class ArticlePage {
+    constructor(
+        public articleNumber: string,
+        public articleUrl: string,
+        public author: string,
+        public boardName: string,
+        public body: string,
+        public createTime: string,
+        public respond: string,
+        public discussionsCreatTime: string,
+        public discussionsDiscussion: string,
+        public discussionsDiscussionId: string,
+        public discussionsFromPttLite: string,
+        public discussionsResponeType: string,
+        public discussionsResponeUserId: string,
+        public discussionsResponeUserIp: string,
+        public dislikeCount: string,
+        public ipLocation: string,
+        public lastUpdate: string,
+        public likeCount: string,
+        public neutralCount: string,
+        public replyFromPttLite: string,
+        public title: string,
+            ) {
+    }
+}
+
+
+

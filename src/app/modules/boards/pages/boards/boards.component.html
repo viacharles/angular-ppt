@@ -35,7 +35,7 @@
         <img class="Boards__Cover" src="../../../assets/img/index2.png" alt="">
         <!-- 內容文章 -->
         <div class="Boards__SmallGrids">
-            <div (click)="this.$articleContent.setArticleContent(article.num,article.board)" *ngFor="let article of this.getDisplayArticles()">
+            <div (click)="this.$article.setArticleContent(article.num,article.board)" *ngFor="let article of this.getDisplayArticles()">
                 <app-article-cover [article]="article"></app-article-cover>
 
             </div>

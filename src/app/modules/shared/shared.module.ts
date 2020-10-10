@@ -27,6 +27,7 @@ import { NavComponent } from './components/nav/nav.component';
     CommentComponent,
     NavComponent,
     FormsModule,
+    CommonModule,
     NavigationComponent
   ]
 })

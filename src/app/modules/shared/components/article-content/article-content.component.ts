@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { ArticleService } from '@services/article.service';
 import { OverlayService } from './../../service/overlay.service';
 import { Component, ElementRef, HostListener, NgZone, OnInit, ViewChild } from '@angular/core';
-import { ArticleContentService } from '../../service/article-content.service';
-
 @Component({
   selector: 'app-article-content',
   templateUrl: './article-content.component.html',
@@ -14,15 +12,17 @@ export class ArticleContentComponent implements OnInit {
 
 
   constructor(
-    public http: HttpClient,
     public $overlay: OverlayService,
-    public $articleContent: ArticleContentService,
+    public $article: ArticleService,
     private zone: NgZone
   ) { }
 
 
   ngOnInit(): void {
+    console.log(this.$article.articlePage);
   }
+
+
 
   public onScroll(target) {
     this.zone.runOutsideAngular(

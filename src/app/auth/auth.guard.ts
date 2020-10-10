@@ -22,7 +22,19 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     return true;
   }
   canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return this.$auth.isLogin;
+    if (state.url === '/landing') {
+      if (this.$auth.isLogin) {
+        this.router.navigate(['/boards']);
+        return false;
+      }
+    }
+    return true;
+    if (state.url === '/my') {
+      if (this.$auth.isLogin) {
+        this.router.navigate(['/my']);
+      }
+    }
   }
+
 
 }

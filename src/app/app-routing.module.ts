@@ -1,19 +1,26 @@
-import { MyComponent } from './modules/user/components/my/my.component';
-import { AllTopicsComponent } from './modules/boards/pages/all-topics/all-topics.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ArticleContentComponent } from './modules/shared/components/article-content/article-content.component';
 import { AuthGuard } from './auth/auth.guard';
+import { LandingComponent } from './modules/landing/pages/landing/landing.component';
 
 
 const routes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       {
         path: 'boards',
         loadChildren: () => import('./modules/boards/boards.module').then(m => m.BoardsModule)
+      },
+      {
+        path: 'landing',
+        component: LandingComponent
+      },
+      {
+        path: 'my',
+        loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
       }
     ]
   }

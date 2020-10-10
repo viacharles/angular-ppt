@@ -152,7 +152,7 @@
 
 // ----- 菜 單 ----- //
 // 菜單，大框架
-@mixin ul {
+@mixin ul () {
     cursor: pointer;
     position: fixed;
     z-index: 19;

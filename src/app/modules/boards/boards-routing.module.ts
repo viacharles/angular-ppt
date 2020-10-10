@@ -1,4 +1,4 @@
-import { LandingModule } from './../landing/landing.module';
+import { ArticleContentComponent } from './../shared/components/article-content/article-content.component';
 import { BoardsComponent } from './pages/boards/boards.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,8 +10,8 @@ const routes: Routes = [
     component: BoardsComponent,
     children: [
       {
-        path: 'landing',
-        loadChildren: () => import('../landing/landing.module').then(m => m.LandingModule)
+        path: 'article',
+        component: ArticleContentComponent,
       },
       {
         path: 'user',

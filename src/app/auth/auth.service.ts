@@ -1,3 +1,4 @@
+import { HttpService } from './../modules/shared/service/http.service';
 import { ILogin } from '../utilities/interfaces/interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   constructor(
-    private http: HttpClient,
+    private $http: HttpService,
     private router: Router
   ) { }
 
@@ -30,15 +31,10 @@ export class AuthService {
   }
 
   private getToken$(params: ILogin) {
-    return this.http.post('https://pttlite.ddns.net/login', {
+    return this.$http.post('login', {
       email: params.email,
       password: params.password,
-    }).pipe(
-      catchError(error => {
-        this.onUserIllegal(error);
-        throw error;
-      })
-    );
+    });
   }
 
   private onTokenRecived(token: string) {
@@ -48,10 +44,6 @@ export class AuthService {
       _ => this.refreshToken(),
       TOKEN_LIFE_TIME * 1000
     );
-  }
-
-  private onUserIllegal(error) {
-    console.log(error.message);
   }
 
   private refreshToken() {
