@@ -10,7 +10,7 @@
     &__Filter {
         position: sticky;
         z-index: 10;
-        top: 45px;
+        top: 40px;
         @include row-between();
         width: 638px;
         height: 60px;
@@ -64,6 +64,7 @@
                     width: 30px;
                     height: 20px;
                     color: rgb(15, 127, 255);
+                    user-select: none;
                 }
                 &>i:nth-child(3) {
                     font-size: 17px;
@@ -73,6 +74,8 @@
             }
             &>ul {
                 @include ul();
+                top: 40px;
+                left: 15px;
                 &>li {
                     @include article-head-li();
                 }

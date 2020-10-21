@@ -9,8 +9,7 @@ const routes: Routes = [
   component: MyComponent,
   canActivate: [UserGuard],
   canActivateChild: [UserGuard],
-
-  }
+}
 ];
 
 @NgModule({

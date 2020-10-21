@@ -1,42 +1,27 @@
 @import "style";
-.Article_overlay {
+.ArticleOverlay {
     width: 100%;
     height: 100%;
     &__Container {
+        @include row-a-center();
         width: 100%;
         height: 100%;
-        &>span {
-            position: relative;
-            @include row-a-center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            &>div {
-                position: relative;
-                max-width: 728px;
-                min-width: 728px;
-                height: 100%;
-                background-color: #fff;
-                overflow: hidden;
-            }
-            &>span:nth-child(3) {
-                cursor: pointer;
-                @include column-a-center();
-                justify-content: center;
-                position: relative;
-                z-index: 22;
-                height: 160px;
-                width: 90px;
-                color: rgb(46, 175, 111);
-                &>i {
-                    color: rgb(243, 243, 243);
-                    font-size: 60px;
-                    opacity: 0.8;
-                }
-            }
+    }
+    &__LastArticle {
+        cursor: pointer;
+        position: relative;
+        z-index: 22;
+        @include column-a-center();
+        height: 75px;
+        width: 75px;
+        padding: 45px 0;
+        &>i {
+            color: rgb(255, 255, 255);
+            font-size: 60px;
+            opacity: 0.8;
         }
     }
-    &>span:first-child {
+    &__RightArticle {
         cursor: pointer;
         position: relative;
         z-index: 22;

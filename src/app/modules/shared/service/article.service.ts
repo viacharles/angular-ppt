@@ -1,4 +1,7 @@
-import { ArticlePage } from './../../boards/models/article.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { IMyCenter } from './../../../utilities/interfaces/interface';
+import { AuthService } from '@auth/auth.service';
+import { ArticlePage, MemberCenter } from './../../boards/models/article.model';
 import { Article, Hotboard } from '../../boards/models/article.model';
 import { Injectable } from '@angular/core';
 import { HttpService } from './http.service';
@@ -12,15 +15,19 @@ import { EOverlayType } from '@utilities/enums/overlay.enum';
 export class ArticleService {
 
   constructor(
+    private http: HttpClient,
     private $http: HttpService,
     public $overlay: OverlayService,
+    public $auth: AuthService,
   ) {
     this.setArticles();
+    // this.getHeadshot();
   }
   private articles: Article[] = [];
   public hotboards: Hotboard[];
   public board: string;
   public articlePage: ArticlePage;
+  public memberCenter: MemberCenter;
 
 
 
@@ -54,7 +61,7 @@ export class ArticleService {
 
 
   private setArticles() {
-    this.$http.get('https://pttlite.ddns.net/index').subscribe(
+    this.$http.get('index').subscribe(
       (res: any) => {
         console.log(res);
         this.articles = res.articles.map(
@@ -64,21 +71,21 @@ export class ArticleService {
             article.author,
             article.ip_location,
             article.board_name,
-            article.body_preview,
+            article.content_snapshot,
             article.create_time,
-            article.like_count,
-            article.neutral_count,
+            article.amount_of_likes,
+            article.amount_of_neutrals,
             article.title,
-            article.dislike_count,
-            article.disscussion_count,
+            article.amount_of_dislikes,
+            article.amount_of_discussions,
           )
         );
-        this.hotboards = res.top_8_like_count_boards.map(
+        this.hotboards = res.top_8_amount_of_likes_boards.map(
           hotboard => new Hotboard(
             hotboard.board_class,
             hotboard.board_name,
             hotboard.board_url,
-            hotboard.dissussCount,
+            hotboard.amount_of_likes,
           )
         );
       }
@@ -86,6 +93,8 @@ export class ArticleService {
   }
 
   public setArticleContent(num: string, board: string) {
+    
+
     this.$http.get(`${board}/${num}`).subscribe(
       (res: any) => {
         console.log(res);
@@ -94,21 +103,15 @@ export class ArticleService {
           res.article_page.article_url,
           res.article_page.author,
           res.article_page.board_name,
-          res.article_page.body,
+          res.article_page.content,
           res.article_page.create_time,
           res.article_page.discussion_count,
-          res.article_page.discussions.create_time,
-          res.article_page.discussions.discussion,
-          res.article_page.discussions.discussion_id,
-          res.article_page.discussions.from_pttLite,
-          res.article_page.discussions.respone_type,
-          res.article_page.discussions.respone_user_id,
-          res.article_page.discussions.respone_user_ip,
-          res.article_page.dislike_count,
+          res.article_page.discussions,
+          res.article_page.amount_of_dislikes,
           res.article_page.ip_location,
           res.article_page.last_update,
-          res.article_page.like_count,
-          res.article_page.neutral_count,
+          res.article_page.amount_of_likes,
+          res.article_page.amount_of_neutrals,
           res.article_page.reply_from_pttLite,
           res.article_page.title,
         );
@@ -116,4 +119,20 @@ export class ArticleService {
       }
     );
   }
+
+//   public getHeadshot() {
+//     this.$http.post('member_center').subscribe(
+//       (res: any) => {
+//         console.log(res);
+//         this.memberCenter = new MemberCenter(
+//           res.member_center.nickname,
+//           res.member_center.user_icon,
+//         );
+//       }
+//     );
+//     return new HttpHeaders().set(
+//       'Authorization',
+//       `Bearer ${sessionStorage.getItem('token')}`
+//     );
+//   }
 }

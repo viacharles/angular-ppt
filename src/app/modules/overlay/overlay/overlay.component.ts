@@ -1,5 +1,4 @@
 import { OverlayService } from '../../shared/service/overlay.service';
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { EOverlayType } from '@utilities/enums/overlay.enum';
 
@@ -11,7 +10,7 @@ import { EOverlayType } from '@utilities/enums/overlay.enum';
 export class OverlayComponent implements OnInit {
 
   constructor(
-    public router: Router,
+
     public $overlay: OverlayService,
   ) { }
 

@@ -1,6 +1,8 @@
+import { ArticlePage } from './../../../boards/models/article.model';
 import { ArticleService } from '@services/article.service';
 import { OverlayService } from './../../service/overlay.service';
-import { Component, ElementRef, HostListener, NgZone, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, NgZone, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-article-content',
   templateUrl: './article-content.component.html',
@@ -10,18 +12,23 @@ export class ArticleContentComponent implements OnInit {
 
   @ViewChild('tInfo') info: ElementRef;
 
-
   constructor(
     public $overlay: OverlayService,
     public $article: ArticleService,
-    private zone: NgZone
+    private zone: NgZone,
+    private sanitizer: DomSanitizer
   ) { }
+
+  get html() {
+    return this.sanitizer.bypassSecurityTrustHtml(this.$article.articlePage.body);
+  }
+
+  public commentLength = this.$article.articlePage.discussions.length;
 
 
   ngOnInit(): void {
     console.log(this.$article.articlePage);
   }
-
 
 
   public onScroll(target) {

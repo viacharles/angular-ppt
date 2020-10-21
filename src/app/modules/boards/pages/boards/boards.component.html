@@ -37,7 +37,6 @@
         <div class="Boards__SmallGrids">
             <div (click)="this.$article.setArticleContent(article.num,article.board)" *ngFor="let article of this.getDisplayArticles()">
                 <app-article-cover [article]="article"></app-article-cover>
-
             </div>
         </div>
         <div>

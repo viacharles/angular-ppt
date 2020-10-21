@@ -1,7 +1,6 @@
 <div class="Overlay" *ngIf="this.$overlay.overlay">
     <div class="Overlay__Container" [ngSwitch]='this.$overlay.overlay'>
         <app-article-overlay *ngSwitchCase='this.type.Article'></app-article-overlay>
-        <app-foot-overlay *ngSwitchCase='this.type.Footer'></app-foot-overlay>
         <app-login-overlay *ngSwitchCase='this.type.UnAuth'></app-login-overlay>
     </div>
 </div>

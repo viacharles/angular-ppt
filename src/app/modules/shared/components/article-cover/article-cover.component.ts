@@ -19,19 +19,21 @@ export class ArticleCoverComponent implements OnInit {
     public $article: ArticleService,
     public $auth: AuthService
   ) { }
-  public isDialog: boolean;
+
+  get type(): typeof EOverlayType {
+    return EOverlayType;
+  }
 
   ngOnInit(): void {
   }
 
-  public onLoginDialog() {
-    this.$auth.isLogin ? this.isDialog = false : this.isDialog = true;
-  }
-
-  public toggle() {
+  public favorite(event: MouseEvent) {
     event.stopPropagation();
-    console.log('toggle')
-    this.$overlay.toggle(EOverlayType.UnAuth);
+    if (this.$auth.isLogin) {
+      // do favorite
+    } else {
+      this.$overlay.toggle(EOverlayType.UnAuth);
+    }
   }
 
 }

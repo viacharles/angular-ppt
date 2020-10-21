@@ -5,9 +5,7 @@
                 <span><img src="../../../../assets/img/A.png" alt=""></span>
                 <span> {{this.article.board}} </span>
                 <span>．</span>
-                <span> {{this.article.authorCountry}} </span>
-                <span>．</span>
-                <span> {{this.article.time}} </span>
+                <span> {{this.article.author}} </span>
             </div>
             <div> {{this.article.title}} </div>
             <div>{{this.article.snapshot}}</div>
@@ -18,9 +16,9 @@
                 <span>{{this.article.respond}}</span>
                 <img src="../../../../assets/img/1x/bad.png" alt="">
                 <span>{{this.article.unlike}}</span>
-                <span (click)="this.$auth.onLoginDialog($event)">
+                <span (click)='this.favorite($event)'>
                     <i class="fa fa-bookmark"></i>
-                    <div (click) = 'this.toggle()'>收藏</div>
+                    <span>收藏</span>
                 </span>
             </div>
         </div>

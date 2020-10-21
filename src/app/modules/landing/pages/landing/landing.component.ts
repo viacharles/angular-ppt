@@ -31,7 +31,6 @@ export class LandingComponent implements OnInit {
 
 
   public passwordValidation(input: string) {
-    console.log(input);
     this.passwordWarn = input.length === 0 ? '此欄位為必填' : input.length < 6 ? '長度至少為 6 位。' : '';
     this.isValidPassword = !this.passwordWarn;
   }

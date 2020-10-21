@@ -78,7 +78,10 @@ export class Body {
     }
 }
 
+
+
 export class ArticlePage {
+    public discussions: Discussion[] = [];
     constructor(
         public articleNumber: string,
         public articleUrl: string,
@@ -87,13 +90,7 @@ export class ArticlePage {
         public body: string,
         public createTime: string,
         public respond: string,
-        public discussionsCreatTime: string,
-        public discussionsDiscussion: string,
-        public discussionsDiscussionId: string,
-        public discussionsFromPttLite: string,
-        public discussionsResponeType: string,
-        public discussionsResponeUserId: string,
-        public discussionsResponeUserIp: string,
+        resDiscussions: any,
         public dislikeCount: string,
         public ipLocation: string,
         public lastUpdate: string,
@@ -101,8 +98,36 @@ export class ArticlePage {
         public neutralCount: string,
         public replyFromPttLite: string,
         public title: string,
-            ) {
+    ) {
+        this.discussions = resDiscussions.map(discussion => new Discussion(discussion));
     }
+}
+
+export class Discussion {
+    public creatTime: string;
+    public discussion: string;
+    public discussionId: string;
+    public fromPttLite: string;
+    public responeType: string;
+    public responeUserId: string;
+    public responeUserIp: string;
+    constructor(discussion: any) {
+        this.creatTime = discussion.create_time;
+        this.discussion = discussion.discussion;
+        this.discussionId = discussion.nu;
+        this.fromPttLite = discussion.from_pttLite;
+        this.responeType = discussion.respone_type;
+        this.responeUserId = discussion.respone_user_id;
+        this.responeUserIp = discussion.respone_user_ip;
+    }
+}
+
+
+export class MemberCenter {
+    constructor(
+        public nicName: string,
+        public userIcon: string,
+    ) { }
 }
 
 

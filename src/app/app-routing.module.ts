@@ -1,3 +1,4 @@
+import { AllTopicsComponent } from './modules/boards/pages/all-topics/all-topics.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'landing',
         component: LandingComponent
+      },
+      {
+        path: 'all-topics',
+        component: AllTopicsComponent
       },
       {
         path: 'my',

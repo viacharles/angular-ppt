@@ -75,8 +75,8 @@
 
 @mixin content-head-shot {
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
 }
 
 @mixin content-block-title {
@@ -154,7 +154,7 @@
 // 菜單，大框架
 @mixin ul () {
     cursor: pointer;
-    position: fixed;
+    position: absolute;
     z-index: 19;
     top: 145px;
     right: 390px;

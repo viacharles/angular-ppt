@@ -1,13 +1,20 @@
 @import "style";
 .ArticleContent {
-    position: relative;
-    background-color: rgb(255, 255, 255);
-    padding: 5px 0 0 0;
-    overflow: auto;
     height: 100vh;
+    width: 100vw;
+    @include row-a-center();
+    justify-content: center;
     &__Container {
-        @include column();
-        padding: 40px 60px 0 60px;
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        padding: 5px 0 0 0;
+        overflow: auto;
+        height: 100vh;
+        width: 728px;
+        &>div:first-child {
+            @include column();
+            padding: 40px 60px 0 60px;
+        }
     }
     &__Info {
         @include row-a-center();
@@ -62,7 +69,8 @@
         }
     }
     &__Content {
-        font-size: 18px;
+        font-size: 16px;
+        font-weight: 300;
         padding: 23px 0 35px 0;
     }
     &__Respond {
@@ -244,13 +252,13 @@
         }
     }
     &__FixedReplyInput {
-        @include row-a-center;
+        @include row-a-center();
         justify-content: space-between;
         position: fixed;
         z-index: 30;
         bottom: 0px;
         background-color: rgb(255, 255, 255);
-        width: 606px;
+        width: 608px;
         height: 48px;
         padding: 0px 60px;
         background-color: #fff;

@@ -1,9 +1,8 @@
 import { HttpService } from './../modules/shared/service/http.service';
 import { ILogin } from '../utilities/interfaces/interface';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +11,22 @@ export class AuthService {
 
   constructor(
     private $http: HttpService,
-    private router: Router
-  ) { }
+    private http: HttpClient
+  ) {
+    if (this.isLogin) {
+      this.refreshToken();
+    }
+  }
 
   get isLogin() {
-    return !!sessionStorage.getItem('token');
+    return !!sessionStorage.getItem('access_token');
   }
-  public isDialog = false;
+
+  private tokenLifeTime = 800;
 
   public login(params: ILogin) {
     this.getToken$(params).subscribe(
-      (token: any) => this.onTokenRecived(token.access_token)
+      (token: any) => this.onTokenRecived(token.access_token, token.refresh_token)
     );
   }
 
@@ -37,23 +41,31 @@ export class AuthService {
     });
   }
 
-  private onTokenRecived(token: string) {
-    const TOKEN_LIFE_TIME = 300;
-    sessionStorage.setItem('token', token);
-    setTimeout(
-      _ => this.refreshToken(),
-      TOKEN_LIFE_TIME * 1000
-    );
+  private onTokenRecived(accessToken: string, refreshToken: string) {
+    sessionStorage.setItem('access_token', accessToken);
+    sessionStorage.setItem('refresh_token', refreshToken);
+    this.watchTokenLife(this.tokenLifeTime);
   }
 
   private refreshToken() {
-    console.log('token will outdated');
+    this.http.post(`${this.$http.domain}/refresh_toekn`, {}, {
+      headers: new HttpHeaders().set(
+        'Authorization',
+        `Bearer ${sessionStorage.getItem('refresh_token')}`
+      )
+    }).subscribe(
+      (res: any) => {
+        sessionStorage.setItem('access_token', res.access_token);
+        this.watchTokenLife(this.tokenLifeTime);
+      }
+    );
   }
 
-  public onLoginDialog(e: Event) {
-    e.stopPropagation();
-    this.isLogin ? this.isDialog = false : this.isDialog = true;
+  private watchTokenLife(life: number) {
+    setTimeout(
+      _ => this.refreshToken(),
+      life * 1000
+    );
   }
-
 
 }

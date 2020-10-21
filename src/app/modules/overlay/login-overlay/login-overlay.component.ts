@@ -1,3 +1,5 @@
+import { EOverlayType } from '@utilities/enums/overlay.enum';
+import { OverlayService } from 'src/app/modules/shared/service/overlay.service';
 import { AuthService } from '@auth/auth.service';
 import { ArticleService } from '@services/article.service';
 
@@ -15,15 +17,20 @@ export class LoginOverlayComponent implements OnInit {
   constructor(
     public router: Router,
     public $article: ArticleService,
+    public $overlay: OverlayService,
     public $auth: AuthService,
   ) { }
+
+  get type(): typeof EOverlayType {
+return EOverlayType;
+  }
 
   ngOnInit(): void {
   }
 
   public toPage(page) {
     this.router.navigate([page]);
-    this.$auth.isDialog = false;
+    this.$overlay.close();
   }
 
 
