@@ -4,6 +4,17 @@
     position: relative;
     width: 100vw;
     height: 100vh;
+    &__Field {
+        display: flex;
+        flex-direction: column;
+        span {
+            margin-top: 0.5rem;
+            color: red;
+        }
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
     &__Container {
         overflow: auto;
         @include a();
@@ -193,11 +204,13 @@
             font-weight: 300;
         }
     }
-    &__LoginButtonOff {
-        @include login-button($bg-color: #b4b4b4);
-    }
-    &__LoginButtonOn {
+    &__LoginButton {
+        cursor: pointer;
         @include login-button($bg-color: rgb(75, 139, 235));
+        &:disabled {
+            cursor: not-allowed;
+            @include login-button($bg-color: #b4b4b4);
+        }
     }
     &__agreement {
         position: relative;

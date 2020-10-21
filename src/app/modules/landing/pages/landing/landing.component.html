@@ -24,15 +24,15 @@
                 <div class="Landing__Line">
                     <span></span><span>或</span><span></span>
                 </div>
-                <div class="Landing__Input">
-                    <span>常用信箱</span>
-                    <input (blur)='this.emailValidation($event.target.value)' [(ngModel)]='this.params.email' (ngModelChange)='this.emailValidation($event)' type="text" placeholder="輸入信箱">
-                    <span *ngIf='this.emailWarn'>{{this.emailWarn}}</span>
-                </div>
-                <div class="Landing__Input">
-                    <span>密碼</span>
-                    <input (blur)='this.passwordValidation($event.target.value)' [(ngModel)]='this.params.password' (ngModelChange)="this.passwordValidation($event)" type="{{this.isDisplayPassword? 'text': 'password'}}" placeholder="輸入密碼">
-                    <span *ngIf='this.passwordWarn'>{{this.passwordWarn}}</span>
+                <div [formGroup]="this.form">
+                    <div class="Landing__Field">
+                        <input class="form-control" formControlName="email" type="text">
+                        <span *ngIf='this.form.get("email").invalid && this.form.get("email").touched'>此欄位為必填</span>
+                    </div>
+                    <div class="Landing__Field">
+                        <input formControlName="password" type="text">
+                        <span *ngIf='this.form.get("password").invalid && this.form.get("password").touched'>此欄位為必填</span>
+                    </div>
                 </div>
                 <div>
                     <div class="Landing__Check">
@@ -45,7 +45,7 @@
                     <a>忘記密碼</a>
                     </span>
                 </div>
-                <button class="Landing__LoginButton{{this.isValidPassword && this.isValidEmail? 'On' : 'Off'}}" (click)="this.$auth.login(this.params)">註冊 / 登入</button>
+                <button [disabled]="this.form.invalid" class="Landing__LoginButton" (click)="this.submit()">註冊 / 登入</button>
                 <div class="Landing__Agreement">
                     <span>註冊/登入即代表您同意遵守</span>
                     <a>Dcard 使用協議</a>

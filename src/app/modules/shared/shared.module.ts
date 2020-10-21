@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { ArticleCoverComponent } from './components/article-cover/article-cover.component';
@@ -20,6 +20,7 @@ import { NavComponent } from './components/nav/nav.component';
   imports: [
     FormsModule,
     CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     ArticleContentComponent,
@@ -28,7 +29,8 @@ import { NavComponent } from './components/nav/nav.component';
     NavComponent,
     FormsModule,
     CommonModule,
-    NavigationComponent
+    NavigationComponent,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }
