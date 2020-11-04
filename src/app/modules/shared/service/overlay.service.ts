@@ -11,6 +11,7 @@ export class OverlayService {
   ) { }
 
   public overlay: EOverlayType;
+  public isLoading = false;
 
   public toggle(type: EOverlayType) {
     this.overlay = type;
@@ -19,6 +20,16 @@ export class OverlayService {
   public close() {
     this.overlay = EOverlayType.Close;
   }
+
+  public startLoading() {
+    this.isLoading = true;
+  }
+
+  public finishLoading() {
+    this.isLoading = false;
+  }
+
+
 }
 
 

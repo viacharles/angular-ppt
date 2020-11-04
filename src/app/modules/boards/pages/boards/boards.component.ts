@@ -16,10 +16,10 @@ export class BoardsComponent implements OnInit {
   @ViewChild('tarticle') article: ElementRef;
 
   constructor(
-    private router: Router,
-    public $overlay: OverlayService,
+    public router: Router,
+    private $overlay: OverlayService,
     public $article: ArticleService,
-    public $articleContent: ArticleContentService,
+    private $articleContent: ArticleContentService,
   ) { }
   public isMenu = false;
   public isIcon = true;

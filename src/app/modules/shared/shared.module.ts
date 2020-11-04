@@ -1,5 +1,4 @@
 import { FormsModule } from '@angular/forms';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { ArticleCoverComponent } from './components/article-cover/article-cover.component';
 import { ArticleContentComponent } from './components/article-content/article-content.component';
@@ -15,7 +14,6 @@ import { NavComponent } from './components/nav/nav.component';
     ArticleCoverComponent,
     CommentComponent,
     NavComponent,
-    NavigationComponent
   ],
   imports: [
     FormsModule,
@@ -28,7 +26,6 @@ import { NavComponent } from './components/nav/nav.component';
     NavComponent,
     FormsModule,
     CommonModule,
-    NavigationComponent
   ]
 })
 export class SharedModule { }

@@ -23,7 +23,7 @@
             <!-- 內文 -->
             <div class="ArticleContent__Content" [innerHTML]='this.html'></div>
             <!-- 迴響 -->
-            <ul class="ArticleContent__Respond">
+            <ul class="ArticleContent__Respond {{this.$article.articlePage.isFollowing? 'ArticleContent__Respond--followed':''}}">
                 <li>
                     <img src="../../../assets/img/1x/good.png" alt="">
                     <span> {{this.$article.articlePage.likeCount}} </span>
@@ -32,7 +32,7 @@
                     <img src="../../../assets/img/1x/bad.png" alt="">
                     <span> {{this.$article.articlePage.dislikeCount}} </span>
                 </li>
-                <li>
+                <li (click)="this.favorite($event)">
                     <i class="fa fa-bookmark"></i>
                     <div>收藏</div>
                 </li>
@@ -90,10 +90,12 @@
             <div class="ArticleContent__Comment" *ngFor='let comments of this.$article.articlePage.discussions, let i = index'>
                 <div class="ArticleContent__CommenterInfo">
                     <div>
+                        <span>B{{i+1}}</span>
                         <img src="../../../assets/img/A.png" alt="">
                         <div>
-                            <span>紐西蘭</span>
-                            <span>B{{i+1}}|discussionsCreatTime}}</span>
+                            <span>{{comments.responeUserId}}</span>
+                            <span></span>
+                            <span>{{comments.creatTime}}</span>
                         </div>
                     </div>
                     <div>
@@ -103,18 +105,18 @@
                     </div>
                 </div>
                 <div>{{comments.discussion}}</div>
-                <img src="../../../assets/img/img.png" alt="">
+                <!-- <img src="../../../assets/img/img.png" alt=""> -->
             </div>
         </div>
         <div class="ArticleContent__ReplyInput">
             <input type="text" value="馬上回應搶第{{112樓">
         </div>
-        <div class="ArticleContent__FixedReplyInput">
+        <div class="ArticleContent__FixedReplyInput {{this.$article.articlePage.isFollowing? 'ArticleContent__FixedReplyInput--followed':''}}">
 
             <input type="text" placeholder="回應...">
             <div>
                 <i class="fa fa-heart"></i>
-                <i class="fa fa-bookmark"></i>
+                <i class="fa fa-bookmark" (click)="this.favorite($event)"></i>
                 <i class="fa fa-ellipsis-v"></i>
                 <i class="fa fa-arrow-circle-down"></i>
             </div>

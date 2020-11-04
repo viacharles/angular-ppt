@@ -17,11 +17,10 @@ export class ArticleService {
   constructor(
     private http: HttpClient,
     private $http: HttpService,
-    public $overlay: OverlayService,
-    public $auth: AuthService,
+    private $overlay: OverlayService,
+    private $auth: AuthService,
   ) {
     this.setArticles();
-    // this.getHeadshot();
   }
   private articles: Article[] = [];
   public hotboards: Hotboard[];
@@ -44,7 +43,45 @@ export class ArticleService {
     return this.chunkArticles(articleAfterFilter);
   }
 
+  public setArticleContent(num: string, board: string) {
+    this.$overlay.startLoading();
+    this.$http.get(`${board}/${num}`).subscribe(
+      (res: any) => {
+        console.log(res)
+        this.articlePage = new ArticlePage(
+          res.article_number,
+          res.article_url,
+          res.author,
+          res.board_name,
+          res.content,
+          res.create_time,
+          res.discussion_count,
+          res.discussions,
+          res.amount_of_dislikes,
+          res.ip_location,
+          res.is_following,
+          res.last_update,
+          res.amount_of_likes,
+          res.amount_of_neutrals,
+          res.reply_from_pttLite,
+          res.title,
+        );
+        this.$overlay.finishLoading();
+        this.$overlay.toggle(EOverlayType.Article);
+      }
+    );
+  }
 
+  public favoriteArtice(board: string, id: string, isUpdateArticle = false) {
+    this.$http.post(`follow/${board}/${id}`).subscribe(
+      _ => {
+        this.setArticles();
+        if (isUpdateArticle) {
+          this.setArticleContent(id, board);
+        }
+      }
+    );
+  }
 
   private chunkArticles(articles: Article[], per = 20): Article[][] {
     const articlesAfterChunk = [];
@@ -55,21 +92,18 @@ export class ArticleService {
     return articlesAfterChunk;
   }
 
-
-
-
-
-
   private setArticles() {
     this.$http.get('index').subscribe(
       (res: any) => {
         console.log(res);
+        this.$overlay.finishLoading();
         this.articles = res.articles.map(
           article => new Article(
             article.article_number,
             article.article_url,
             article.author,
             article.ip_location,
+            article.is_following,
             article.board_name,
             article.content_snapshot,
             article.create_time,
@@ -92,47 +126,4 @@ export class ArticleService {
     );
   }
 
-  public setArticleContent(num: string, board: string) {
-    
-
-    this.$http.get(`${board}/${num}`).subscribe(
-      (res: any) => {
-        console.log(res);
-        this.articlePage = new ArticlePage(
-          res.article_page.article_number,
-          res.article_page.article_url,
-          res.article_page.author,
-          res.article_page.board_name,
-          res.article_page.content,
-          res.article_page.create_time,
-          res.article_page.discussion_count,
-          res.article_page.discussions,
-          res.article_page.amount_of_dislikes,
-          res.article_page.ip_location,
-          res.article_page.last_update,
-          res.article_page.amount_of_likes,
-          res.article_page.amount_of_neutrals,
-          res.article_page.reply_from_pttLite,
-          res.article_page.title,
-        );
-        this.$overlay.toggle(EOverlayType.Article);
-      }
-    );
-  }
-
-//   public getHeadshot() {
-//     this.$http.post('member_center').subscribe(
-//       (res: any) => {
-//         console.log(res);
-//         this.memberCenter = new MemberCenter(
-//           res.member_center.nickname,
-//           res.member_center.user_icon,
-//         );
-//       }
-//     );
-//     return new HttpHeaders().set(
-//       'Authorization',
-//       `Bearer ${sessionStorage.getItem('token')}`
-//     );
-//   }
 }

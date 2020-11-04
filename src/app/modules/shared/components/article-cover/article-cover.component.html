@@ -9,13 +9,21 @@
             </div>
             <div> {{this.article.title}} </div>
             <div>{{this.article.snapshot}}</div>
-            <div class="ArticleCover__Respond">
-                <img src="../../../../assets/img/1x/good.png" alt="">
-                <span> {{this.article.like}} </span>
-                <img src="../../../../assets/img/1x/normal.png" alt="">
-                <span>{{this.article.respond}}</span>
-                <img src="../../../../assets/img/1x/bad.png" alt="">
-                <span>{{this.article.unlike}}</span>
+            <div class="ArticleCover__Respond {{this.article.isFollowing? 'ArticleCover__Respond--followed': ''}}">
+                <ul>
+                    <li>
+                        <img src="../../../../assets/img/1x/good.png" alt="">
+                        <span> {{this.article.like}} </span>
+                    </li>
+                    <li>
+                        <img src="../../../../assets/img/1x/normal.png" alt="">
+                        <span>{{this.article.respond}}</span>
+                    </li>
+                    <li>
+                        <img src="../../../../assets/img/1x/bad.png" alt="">
+                        <span>{{this.article.unlike}}</span>
+                    </li>
+                </ul>
                 <span (click)='this.favorite($event)'>
                     <i class="fa fa-bookmark"></i>
                     <span>收藏</span>

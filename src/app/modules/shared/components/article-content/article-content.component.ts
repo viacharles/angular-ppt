@@ -1,4 +1,5 @@
-import { ArticlePage } from './../../../boards/models/article.model';
+import { AuthService } from '@auth/auth.service';
+import { Article, ArticlePage } from './../../../boards/models/article.model';
 import { ArticleService } from '@services/article.service';
 import { OverlayService } from './../../service/overlay.service';
 import { Component, ElementRef, HostListener, Input, NgZone, OnInit, ViewChild } from '@angular/core';
@@ -15,6 +16,7 @@ export class ArticleContentComponent implements OnInit {
   constructor(
     public $overlay: OverlayService,
     public $article: ArticleService,
+    private $auth: AuthService,
     private zone: NgZone,
     private sanitizer: DomSanitizer
   ) { }
@@ -42,6 +44,11 @@ export class ArticleContentComponent implements OnInit {
     );
   }
 
+  public favorite(event: MouseEvent) {
+    if (this.$auth.isLogin) {
+      this.$article.favoriteArtice(this.$article.articlePage.boardName, this.$article.articlePage.articleNumber, true);
+    }
+  }
 
 
 }

@@ -22,6 +22,10 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     return true;
   }
   canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    console.log(state.url);
+    if (state.url === '/') {
+      this.router.navigate(['/boards']);
+    }
     if (state.url === '/landing') {
       if (this.$auth.isLogin) {
         this.router.navigate(['/boards']);
@@ -29,11 +33,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       }
     }
     return true;
-    if (state.url === '/my') {
-      if (this.$auth.isLogin) {
-        this.router.navigate(['/my']);
-      }
-    }
   }
 
 

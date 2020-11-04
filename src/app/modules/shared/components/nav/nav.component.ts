@@ -29,6 +29,7 @@ export class NavComponent implements OnInit {
   }
 
   public toPage(path) {
+    console.log('toLanding')
     this.router.navigate([path]);
   }
 

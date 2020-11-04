@@ -25,12 +25,13 @@ export class ArticleCoverComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   public favorite(event: MouseEvent) {
     event.stopPropagation();
     if (this.$auth.isLogin) {
-      // do favorite
+      this.$article.favoriteArtice(this.article.board, this.article.num);
     } else {
       this.$overlay.toggle(EOverlayType.UnAuth);
     }

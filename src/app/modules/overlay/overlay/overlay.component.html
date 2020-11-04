@@ -4,3 +4,4 @@
         <app-login-overlay *ngSwitchCase='this.type.UnAuth'></app-login-overlay>
     </div>
 </div>
+<app-loading *ngIf="this.$overlay.isLoading"></app-loading>

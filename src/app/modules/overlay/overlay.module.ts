@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { ArticleOverlayComponent } from './article-overlay/article-overlay.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 
@@ -15,7 +16,8 @@ import { ArticleOverlayComponent } from './article-overlay/article-overlay.compo
     FootOverlayComponent,
     LoginOverlayComponent,
     ArticleOverlayComponent,
-    ArticleNextComponent
+    ArticleNextComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,

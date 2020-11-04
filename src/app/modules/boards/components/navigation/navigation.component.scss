@@ -5,7 +5,7 @@
     &__Contanier {
         @include column();
         align-items: flex-start;
-        padding: 70px 15px 0 0px;
+        padding: 0 15px 0 0;
     }
     &__Main {
         cursor: pointer;

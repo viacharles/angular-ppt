@@ -2,8 +2,7 @@
     <div class="Layout__Container">
         <app-nav></app-nav>
         <div class="Layout__Main">
-            <app-navigation *ngIf="this.router.url !== '/landing' && this.router.url !== '/my'"></app-navigation>
-            <div class="Layout__Page" [ngStyle]="{ 'overflow': this.disabledScroll? 'hidden':'auto'}">
+            <div class="Layout__Page">
                 <ng-content></ng-content>
             </div>
 

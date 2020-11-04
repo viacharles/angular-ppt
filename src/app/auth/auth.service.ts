@@ -2,6 +2,7 @@ import { HttpService } from './../modules/shared/service/http.service';
 import { ILogin } from '../utilities/interfaces/interface';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -11,7 +12,8 @@ export class AuthService {
 
   constructor(
     private $http: HttpService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     if (this.isLogin) {
       this.refreshToken();
@@ -31,6 +33,7 @@ export class AuthService {
   }
 
   public logout() {
+    
     sessionStorage.clear();
   }
 
@@ -45,6 +48,7 @@ export class AuthService {
     sessionStorage.setItem('access_token', accessToken);
     sessionStorage.setItem('refresh_token', refreshToken);
     this.watchTokenLife(this.tokenLifeTime);
+    this.router.navigate(['/boards']);
   }
 
   private refreshToken() {

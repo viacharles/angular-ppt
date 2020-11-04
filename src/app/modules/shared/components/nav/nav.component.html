@@ -11,10 +11,10 @@
         </div>
 
         <div class="Navbar__Login">
-            <span>
-                <i class="fa fa-user" (click)="this.toPage('my')"></i>
+            <span *ngIf="this.$auth.isLogin">
+                <i class="fa fa-user" (click)="this.toPage('user')"></i>
             </span>
-            <button (click)="this.toPage('landing')">註冊 / 登入</button>
+            <button *ngIf="!this.$auth.isLogin" (click)="this.toPage('landing')">註冊 / 登入</button>
             <i class="fa fa-caret-down" (click)="this.openMenu()"></i>
             <ul *ngIf="this.menu" [ngClass]="{'open-menu': this.menu}">
                 <li></li>
