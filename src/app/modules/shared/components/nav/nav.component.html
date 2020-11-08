@@ -1,7 +1,7 @@
 <div class="Navbar">
     <div class="Navbar__Container">
         <div>
-            <img (click)="this.toPage('boards')" (click)="this.$article.setBoardFilter('')" src="../../../assets/img/property.png" alt="">
+            <img (click)="this.$article.setBoardFilter('', 'boards')" src="../../../assets/img/property.png" alt="">
             <div class="Navbar__Search">
                 <input (click)='this.onclick()' [(ngModel)]='this.hotKey' type="text" (keydown.enter)="this.$article.search($event.target.value)" placeholder="搜尋..果敢不同很可以">
                 <button>

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IMyCenter } from './../../../utilities/interfaces/interface';
 import { AuthService } from '@auth/auth.service';
@@ -19,6 +20,7 @@ export class ArticleService {
     private $http: HttpService,
     private $overlay: OverlayService,
     private $auth: AuthService,
+    private router: Router,
   ) {
     this.setArticles();
   }
@@ -34,8 +36,9 @@ export class ArticleService {
     this.articles = this.articles.filter(content => content.title.includes(key));
   }
 
-  public setBoardFilter(board: string) {
+  public setBoardFilter(board: string, url) {
     this.board = board;
+    this.router.navigate([url]);
   }
 
   public getArticles() {
@@ -47,7 +50,7 @@ export class ArticleService {
     this.$overlay.startLoading();
     this.$http.get(`${board}/${num}`).subscribe(
       (res: any) => {
-        console.log(res)
+        console.log(res);
         this.articlePage = new ArticlePage(
           res.article_number,
           res.article_url,

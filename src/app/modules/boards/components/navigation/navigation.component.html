@@ -6,7 +6,7 @@
         </span>
         <div class="Navigation__Hot ">
             <h1>PPT 即時看板</h1>
-            <span *ngFor="let hotboard of this.$article.hotboards " (click)="this.$article.setBoardFilter(hotboard.boardName) " (click)="this.toArticle( 'article') ">
+            <span *ngFor="let hotboard of this.$article.hotboards " (click)="this.$article.setBoardFilter(hotboard.boardName, 'article') ">
                 <span></span> {{hotboard.boardName}}
             </span>
         </div>

@@ -19,7 +19,7 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public toArticle(a) {
+  public toArticle(a,) {
     this.router.navigate([a]);
   }
 

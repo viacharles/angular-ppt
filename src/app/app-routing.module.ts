@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('./modules/boards/boards.module').then(m => m.BoardsModule)
       },
       {
+        path: 'boards/:id',
+        loadChildren: () => import('./modules/boards/boards.module').then(m => m.BoardsModule)
+      },
+      {
         path: 'landing',
         component: LandingComponent
       },
